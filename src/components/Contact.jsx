@@ -1,6 +1,63 @@
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
+import { useState } from 'react';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    nama: '',
+    email: '',
+    whatsapp: '',
+    pesan: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Format message for WhatsApp
+    const message = `*Pesan dari Website Almond Leaf*
+
+*Nama:* ${formData.nama}
+*Email:* ${formData.email}
+*WhatsApp:* ${formData.whatsapp}
+
+*Pesan:*
+${formData.pesan}
+
+---
+Pesan ini dikirim melalui website Almond Leaf`;
+
+    // Create WhatsApp URL
+    const phoneNumber = '6282291974003';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Reset form
+    setFormData({
+      nama: '',
+      email: '',
+      whatsapp: '',
+      pesan: ''
+    });
+    
+    // Show success message and reset loading state
+    setShowSuccess(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setShowSuccess(false);
+    }, 2000);
+  };
   const contactInfo = [
     {
       icon: Phone,
@@ -84,15 +141,19 @@ const Contact = () => {
             <h3 className="text-2xl font-bold text-gray-800 mb-6">
               Kirim Pesan Langsung
             </h3>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Nama Lengkap
                 </label>
                 <input
                   type="text"
+                  name="nama"
+                  value={formData.nama}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
                   placeholder="Masukkan nama Anda"
+                  required
                 />
               </div>
               
@@ -102,8 +163,12 @@ const Contact = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
                   placeholder="nama@email.com"
+                  required
                 />
               </div>
               
@@ -113,8 +178,12 @@ const Contact = () => {
                 </label>
                 <input
                   type="tel"
+                  name="whatsapp"
+                  value={formData.whatsapp}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
                   placeholder="+62 812-xxxx-xxxx"
+                  required
                 />
               </div>
               
@@ -123,21 +192,53 @@ const Contact = () => {
                   Pesan
                 </label>
                 <textarea
+                  name="pesan"
+                  value={formData.pesan}
+                  onChange={handleInputChange}
                   rows="4"
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 resize-none"
                   placeholder="Tulis pesan atau pertanyaan Anda..."
+                  required
                 ></textarea>
               </div>
               
               <button
                 type="submit"
-                className="w-full bg-primary-500 text-white py-4 rounded-xl font-semibold hover:bg-primary-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
+                disabled={isSubmitting}
+                className={`w-full py-4 rounded-xl font-semibold transform transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center ${
+                  isSubmitting 
+                    ? 'bg-gray-400 cursor-not-allowed' 
+                    : 'bg-primary-500 text-white hover:bg-primary-600 hover:scale-105'
+                }`}
               >
-                <Send className="w-5 h-5 mr-2" />
-                Kirim Pesan
+                {isSubmitting ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                    Mengirim...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5 mr-2" />
+                    Kirim Pesan
+                  </>
+                )}
               </button>
-            </form>
-          </div>
+                          </form>
+              
+              {/* Success Message */}
+              {showSuccess && (
+                <div className="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-xl animate-fade-in">
+                  <div className="flex items-center">
+                    <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <span className="font-medium">Pesan berhasil dikirim! WhatsApp akan terbuka dalam beberapa detik.</span>
+                  </div>
+                </div>
+              )}
+            </div>
 
           {/* Contact Info & CTA */}
           <div data-aos="fade-left" data-aos-duration="1000">
@@ -182,7 +283,7 @@ const Contact = () => {
                   Tim kami siap membantu Anda 24/7.
                 </p>
                 <a
-                  href="https://wa.me/6282291974003"
+                  href="https://wa.me/6282291974003?text=Halo! Saya tertarik dengan produk daun ketapang Anda. Bisa minta informasi lebih lanjut?"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center bg-white text-green-600 px-6 py-3 rounded-full font-semibold hover:bg-green-50 transform hover:scale-105 transition-all duration-300 shadow-lg"

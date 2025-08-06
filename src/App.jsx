@@ -9,6 +9,7 @@ import Products from './components/Products';
 import Benefits from './components/Benefits';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
       <Benefits />
       <Contact />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
