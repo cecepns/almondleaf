@@ -100,7 +100,7 @@ const Hero = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div
+        {/* <div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
           onClick={() => scrollToSection("about")}
           data-aos="fade-up"
@@ -111,7 +111,7 @@ const Hero = () => {
             <span className="text-sm mb-2">Scroll untuk lebih</span>
             <ArrowDown className="w-6 h-6 animate-bounce" />
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
