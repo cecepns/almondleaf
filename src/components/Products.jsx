@@ -2,6 +2,9 @@ import { Leaf, Shield, Star, CheckCircle } from 'lucide-react';
 import AlmondLeaf1 from '../assets/almond-leaf-1.jpeg';
 import DaunKetapang from '../assets/daun-katapang.jpeg';
 import DaunKatapang2 from '../assets/daun-katapang-2.jpeg';
+import Product1 from '../assets/product-1.jpeg';
+import Product2 from '../assets/product-2.jpeg';
+
 
 const Products = () => {
   const features = [
@@ -28,6 +31,16 @@ const Products = () => {
   ];
 
   const productImages = [
+    {
+      url: Product1,
+      // title: "Daun Ketapang Kering Premium",
+      // description: "Ukuran besar, warna coklat sempurna"
+    },
+    {
+      url: Product2,
+      // title: "Daun Ketapang Kering Premium",
+      // description: "Ukuran besar, warna coklat sempurna"
+    },
     {
       url: DaunKetapang,
       // title: "Daun Ketapang Kering Premium",
