@@ -40,7 +40,7 @@ const About = () => {
               Komitmen Terhadap Kualitas Premium
             </h3>
             <p className="text-gray-600 leading-relaxed">
-              <strong>PT. Coastal Almond Leaf</strong> didirikan pada <strong>24 Februari 2018</strong> 
+              <strong>PT. Coastal Almond Leaf</strong> didirikan pada <strong>24 Februari 2018 {" "}</strong> 
               dengan visi menyediakan daun ketapang berkualitas premium untuk komunitas pecinta ikan cupang. 
               Berlokasi strategis di <strong>Puri Manado Permai, Manado, Sulawesi Utara</strong>, 
               kami memanfaatkan keunggulan geografis untuk menghasilkan produk terbaik.

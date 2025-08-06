@@ -258,14 +258,14 @@ Pesan ini dikirim melalui website Almond Leaf`;
                     <MessageCircle className="w-5 h-5 text-primary-500 mr-3 flex-shrink-0" />
                     <span>Konsultasi gratis via WhatsApp</span>
                   </div>
-                  <div className="flex items-center text-gray-700">
+                  {/* <div className="flex items-center text-gray-700">
                     <Send className="w-5 h-5 text-primary-500 mr-3 flex-shrink-0" />
                     <span>Pengiriman ke seluruh Indonesia</span>
                   </div>
                   <div className="flex items-center text-gray-700">
                     <Clock className="w-5 h-5 text-primary-500 mr-3 flex-shrink-0" />
                     <span>Respon cepat dalam 1 jam</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
