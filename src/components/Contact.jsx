@@ -69,7 +69,7 @@ Pesan ini dikirim melalui website Almond Leaf`;
     {
       icon: Mail,
       title: "Email",
-      details: "almondleaf.com",
+      details: "admin@coastal-almondleaf.com",
       subtitle: "Kirim pertanyaan Anda",
       color: "from-blue-500 to-blue-600"
     },

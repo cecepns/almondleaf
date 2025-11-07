@@ -21,15 +21,14 @@ const Products = () => {
     setSelectedImage(null);
   };
 
-  // Close modal on escape key
-  const handleKeyDown = (e) => {
-    if (e.key === 'Escape' && isModalOpen) {
-      closeModal();
-    }
-  };
-
   // Add event listener for escape key
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isModalOpen) {
+        closeModal();
+      }
+    };
+
     document.addEventListener('keydown', handleKeyDown);
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
@@ -122,6 +121,22 @@ const Products = () => {
               <h3 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
                 Coastal Almond Leaf Premium
               </h3>
+              
+              <p className="text-base text-gray-700 mb-4 leading-relaxed">
+                Daun ketapang memiliki banyak sifat baik dan menawarkan solusi yang sepenuhnya alami 
+                untuk masalah kulit dan sirip pada ikan. Daun ketapang ini juga memiliki efek pencegahan 
+                terhadap telur yang berjamur dan mencegah stres pada ikan dan udang.
+              </p>
+              
+              <div className="mb-6">
+                <p className="text-sm font-semibold text-gray-700 mb-2">Ukuran Tersedia:</p>
+                <div className="space-y-1 text-sm text-gray-600">
+                  <p>S = kurang lebih 12 sampai 17 cm</p>
+                  <p>M = kurang lebih 17 sampai 23 cm</p>
+                  <p>L = kurang lebih 23 sampai 27 cm</p>
+                </div>
+              </div>
+              
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Daun ketapang kering premium yang diambil langsung dari pohon ketapang laut 
                 di pesisir pantai Sulawesi Utara. Setiap daun dipilih dengan teliti untuk 

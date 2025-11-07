@@ -12,14 +12,14 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="mt-24 md:mt-0 min-h-screen flex items-center justify-center relative overflow-hidden"
     >
       {/* Background Image Layer */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{ backgroundImage: `url(${Background})` }}
       ></div>
-      
+
       {/* Green Overlay Layer */}
       <div className="absolute inset-0 hero-overlay z-10"></div>
 
@@ -37,18 +37,24 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-20">
-        <div className="max-w-4xl mx-auto">
-          <h1
+        <div className="max-w-7xl mx-auto">
+          <div
             className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
             data-aos="fade-up"
             data-aos-duration="1000"
           >
-            Premium <span className="text-yellow-300">Coastal Almond Leaf</span>
-            <br />
+            <div>
+              Premium{" "}
+              <span className="text-yellow-300">Coastal Almond Leaf</span>
+              <br className="block md:hidden"/>
+              <span className="text-lg sm:text-xl lg:text-2xl font-normal text-green-100">
+                (Catappa Leavis)
+              </span>
+            </div>
             <span className="text-lg sm:text-xl lg:text-2xl font-normal text-green-100">
               Daun Ketapang Berkualitas Tinggi
             </span>
-          </h1>
+          </div>
 
           <p
             className="text-lg sm:text-xl text-green-100 mb-8 max-w-2xl mx-auto leading-relaxed"
@@ -89,12 +95,8 @@ const Hero = () => {
             data-aos-delay="600"
           >
             <div className="flex items-center gap-2">
-              <Phone className="w-5 h-5" />
-              <span>+62 822-9197-4003</span>
-            </div>
-            <div className="flex items-center gap-2">
               <Mail className="w-5 h-5" />
-              <span>almondleaf.com</span>
+              <span>admin@coastal-almondleaf.com</span>
             </div>
           </div>
         </div>

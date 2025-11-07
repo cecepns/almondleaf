@@ -21,7 +21,7 @@ const Footer = () => {
               </div>
               <div>
                 <h3 className="font-bold text-xl text-white">
-                  PT. Coastal Almond Leaf
+                  Coastal Almond Leaf
                 </h3>
                 <p className="text-green-300 text-sm">Premium Natural Leaves</p>
               </div>
@@ -39,7 +39,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center text-gray-300">
                 <Mail className="w-5 h-5 text-primary-400 mr-3 flex-shrink-0" />
-                <span>almondleaf.com</span>
+                <span>admin@coastal-almondleaf.com</span>
               </div>
               <div className="flex items-center text-gray-300">
                 <MapPin className="w-5 h-5 text-primary-400 mr-3 flex-shrink-0" />
@@ -93,7 +93,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 PT. Coastal Almond Leaf. All rights reserved.
+              © 2025 Coastal Almond Leaf. All rights reserved.
             </div>
             
             {/* <div className="flex items-center text-gray-400 text-sm">
