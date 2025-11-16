@@ -15,10 +15,21 @@
   box-sizing: border-box;
 }
 
+
 body {
   font-family: Inter, sans-serif;
   line-height: 1.6;
   color: #1f2937;
+  top: 0 !important;
+}
+
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+.skiptranslate {
+  display: none !important;
 }
 
 .gradient-bg {
